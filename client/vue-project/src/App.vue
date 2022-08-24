@@ -1,12 +1,18 @@
 <template>
   <header>
-  
+  <register></register>
   </header>
 
 </template>
 
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
+import Register from './components/Register.vue';
+
+export default {
+  components: {
+    Register
+  }}
 
 </script>
 

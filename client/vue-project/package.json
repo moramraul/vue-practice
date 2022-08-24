@@ -4,9 +4,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "serve": "vite serve"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },

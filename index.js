@@ -1,9 +1,15 @@
 const mongoose = require('mongoose')
 const { json } = require('express')
+const morgan = require('morgan')
 const express = require('express')
-
+const router = require('./routes/routes')
 const app = express()
+
 app.use(json())
+app.use(morgan('dev'))
+
+app.use(express.static('./client/vue-project/public'))
+app.use(router)
 
 const url = 'mongodb://localhost:27017/Magic-Cards'
 
