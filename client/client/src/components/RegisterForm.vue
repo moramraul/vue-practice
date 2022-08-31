@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   data() {
     return {
@@ -34,7 +33,8 @@ export default {
       emailValidity: 'pending',
       password: '',
       password2: '',
-      passwordValidity: 'pending'
+      passwordValidity: 'pending',
+      user: {}
     }
   },
   methods: {
@@ -65,20 +65,21 @@ export default {
         this.nameValidity === 'valid' && this.passwordValidity === 'valid' && this.emailValidity === 'valid'
       )
       {
-        let user = {
+        this.user = {
           name: this.name,
           email: this.email,
           password: this.password
-        }
-       fetch('/register', {
+        };
+       fetch( '/register', {
         method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          user
-        })
+        headers: new Headers({
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }),
+        body: JSON.stringify(this.user)
       })
+      .then(res=> console.log(res))
+      .then(()=> this.$router.push('/login'))
       }
       else {
         alert("Something is wrong, check all fields")

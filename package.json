@@ -28,6 +28,5 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.19",
     "sequence": "^3.0.0"
-  },
-  "proxy": "http://localhost:5500"
+  }
 }
